@@ -11,6 +11,10 @@ export class EquipoService {
   constructor(private http: HttpClient) { }
 
   getEquipos(): Observable<Equipo[]>{
-  	return this.http.get<Equipo[]>("http://localhost:8080/equipo/listado");
+  	return this.http.get<Equipo[]>('http://localhost:8000/equipo/listado');
+  }
+
+  postEquipo(equipo: Equipo): Observable<Equipo>{
+  	return this.http.post<Equipo>('http://localhost:8000/equipo/registro', equipo);
   }
 }

@@ -13,7 +13,8 @@ export class AppComponent {
 
   equipo: Equipo[];
   private equipoService: EquipoService;
-
+  isHabilitado: boolean = true;
+  
   constructor(equipoService: EquipoService){
   	this.equipoService = equipoService;
   }
@@ -25,5 +26,13 @@ export class AppComponent {
   			this.equipo = equipo;
   		}
   	);
+  }
+
+  habilitar(): void{
+    if(this.isHabilitado){
+      this.isHabilitado=false;
+    }else{
+      this.isHabilitado=true;
+    }
   }
 }

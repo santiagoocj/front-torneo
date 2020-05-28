@@ -29,10 +29,10 @@
                 </div>
                 <div class="col-md-4">
 
-                    <button type="button" (click)="listarEquipos()" class="btn btn-md btn-info btn-block" >
-                        Listar Equipos
-                    </button>
-                    <table class="table">
+                    <button type="button" class="btn btn-block btn-info" (click)="habilitar()" (click)="listarEquipos()">Mostrar Equipos</button>
+
+
+                    <table class="table" *ngIf = "isHabilitado == false">
                         <thead>
                             <tr>
                                 <th>
@@ -50,7 +50,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="table-active" *ngFor = "let equipos of equipo">
+                            <tr class="table-active" *ngFor="let equipos of equipo">
                                 <td>
                                     {{equipos.codigoEquipo}}
                                 </td>
@@ -71,29 +71,7 @@
                 <div class="col-md-2">
                 </div>
                 <div class="col-md-4">
-
-                    <button type="button" class="btn btn-block btn-info">
-                        Registro Equipos
-                    </button>
-                    <form role="form">
-                        <div class="form-group">
-
-                            <label for="exampleInputEmail1">
-                                Nombre
-                            </label>
-                            <input type="text" class="form-control" id="inputName" />
-                        </div>
-                        <div class="form-group">
-
-                            <label for="exampleInputPassword1">
-                                Numero de Jugadores
-                            </label>
-                            <input type="text" class="form-control" id="inputTeam" />
-                        </div>
-                        <button type="submit" class="btn btn-primary">
-                            Registrar
-                        </button>
-                    </form>
+                    <app-formulario></app-formulario>
                 </div>
                 <div class="col-md-1">
                 </div>
